@@ -1,3 +1,10 @@
+:root{
+  --main-background-color: linear-gradient(to top left, rgba(122, 225, 238, 0.35), rgba(250, 166, 180, 0.35));
+  --avatar-border: linear-gradient(to top left, rgb(122, 225, 238), rgb(250, 166, 180));
+  --moz-avatar-border: -moz-linear-gradient(to top left, rgb(122, 225, 238), rgb(250, 166, 180));
+  --webkit-avatar-border: -webkit-linear-gradient(to top left, rgb(122, 225, 238), rgb(250, 166, 180));
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',

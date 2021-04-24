@@ -1,0 +1,8 @@
+.page{
+    display: grid;
+    grid-template-areas: 'n w';
+    grid-template-columns: 3fr 7fr;
+
+
+    background: rgb(255, 0, 0);
+}
