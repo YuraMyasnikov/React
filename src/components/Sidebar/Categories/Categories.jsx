@@ -9,9 +9,9 @@ function Categories() {
         <div className="categories">
             <ul className="categories__list">
                 <Category name="Гланая" link="/page"/>
+                <Category name="Сообщения" link="/messanger"/>
                 <Category name="Новости" link="/news"/>
                 <Category name="Друзья" link="/friend"/>
-                <Category name="Сообщения" link="/messages"/>
                 <Category name="Фото" link="/photo"/>
                 <Category name="Музыка" link="/music"/>
                 <Category name="Видео" link="/video"/>
