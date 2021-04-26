@@ -1,7 +1,6 @@
 import React from 'react';
 import c from './category.module.css';
 import {NavLink} from "react-router-dom";
-import d from "../../../Content/Messanger/Dialog/dialog.module.css";
 
 const Category = (props) => {
     return (
