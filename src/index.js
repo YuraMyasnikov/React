@@ -3,14 +3,11 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import Main from "./components/Main/Main";
 import reportWebVitals from './reportWebVitals';
-import {BrowserRouter} from "react-router-dom";
-
+import state from './redux/state';
 
 ReactDOM.render(
     <React.StrictMode>
-        <BrowserRouter>
-            <Main/>
-        </BrowserRouter>
+        <Main state={state} />
     </React.StrictMode>,
     document.getElementById('root')
 );
