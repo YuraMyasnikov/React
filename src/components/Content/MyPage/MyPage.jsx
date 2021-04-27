@@ -4,7 +4,9 @@ import page from './my_page.module.css';
 import Narrow from "./Narrow/Narrow";
 import Wide from "./Wide/Wide";
 
-function MyPage() {
+function MyPage(props) {
+
+    console.log(props);
     return (
         <div className='page'>
             <Narrow />

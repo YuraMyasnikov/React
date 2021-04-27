@@ -5,13 +5,14 @@ import Sidebar from './../Sidebar/Sidebar'
 import Content from "../Content/Content";
 import {BrowserRouter} from "react-router-dom";
 
-const Main = () => {
+const Main = (props) => {
+    console.log("main", props)
     return (
         <BrowserRouter>
             <div className="main">
                 <Header/>
                 <Sidebar/>
-                <Content/>
+                <Content state={props.state}/>
             </div>
         </BrowserRouter>
     );
