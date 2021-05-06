@@ -6,11 +6,11 @@ import Wide from "./Wide/Wide";
 
 function MyPage(props) {
 
-    console.log(props);
+    console.log('my_page',props);
     return (
         <div className='page'>
             <Narrow />
-            <Wide />
+            <Wide state={props.state.wide} fn3={props.fn2} updatePostText={props.updatePostText} />
         </div>
     );
 }

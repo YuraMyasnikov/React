@@ -9,15 +9,16 @@ import News      from "./News/News";
 import Photo     from "./Photo/Photo";
 import Video     from "./Video/Video";
 import {Route}   from "react-router-dom";
+import {updatePostText} from "../../redux/state";
 
 
 function Content(props) {
     console.log("content", props)
     return (
         <div className="content">
-            <Route path='/page' render={ () => <MyPage state={props.state.main} /> }/>
+            <Route path='/page' render={ () => <MyPage state={props.state.page} fn2={props.fn1} updatePostText={props.updatePostText} /> }/>
             <Route path='/friend' component={Friend}/>
-            <Route path='/messanger' render={ () => <Messanger state={props.state.messenger} /> }/>
+            <Route path='/messanger' render={ () => <Messanger /> }/>
             <Route path='/music' component={Music}/>
             <Route path='/news' component={News}/>
             <Route path='/photo' component={Photo}/>
