@@ -1,16 +1,24 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import './index.css';
-import Main from "./components/Main/Main";
 import reportWebVitals from './reportWebVitals';
-import state from './redux/state';
+import ReactDOM from "react-dom";
+import Main from "./components/Main/Main";
+import store, {sub} from "./redux/state";
 
-ReactDOM.render(
-    <React.StrictMode>
-        <Main state={state} />
-    </React.StrictMode>,
-    document.getElementById('root')
-);
+const test = ()=>{
+    return 'yura';
+}
+const RenderIndex = () => {
+
+    ReactDOM.render(
+        <Main  store={store}/>,
+        document.getElementById('root')
+    );
+}
+
+sub(RenderIndex)
+
+RenderIndex();
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
