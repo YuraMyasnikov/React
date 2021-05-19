@@ -18,11 +18,12 @@ function Content(props) {
             <Route path='/page' render={() => <MyPage
                 state={props.state.page}
                 despatch={props.despatch}
-                subscribe = {props.subscribe}
                 />}
             />
             <Route path='/friend' component={Friend}/>
-            <Route path='/messanger' render={ () => <Messanger /*state={props.state.messenger}*/ /> }/>
+            <Route path='/messanger' render={ () => <Messanger
+                state={props.state.messenger}
+                despatch={props.despatch} /> }/>
             <Route path='/music' component={Music}/>
             <Route path='/news' component={News}/>
             <Route path='/photo' component={Photo}/>

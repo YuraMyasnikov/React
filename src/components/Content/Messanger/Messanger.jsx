@@ -4,16 +4,27 @@ import m from './messanger.module.css';
 
 import Dialog from "./Dialog/Dialog";
 import Message from "./Message/Message";
-
+import {clickMessageCreator, updateMessageCreator} from "../../../redux/state";
 
 const Messanger = (props) => {
     console.log("messenger",props);
 
-    let dialogs = props.state.dialogsData.map( (el) => {
-        return  <Dialog name={el.name} id={el.id} img={el.img}/>
+    let changeMessage = (e)=>{
+        console.log(e.target.value);
+        let simvol = e.target.value;
+        props.despatch(updateMessageCreator(simvol))
+    }
+    let clickMessage = () =>{
+        props.despatch(clickMessageCreator(newSimvol))
+    }
+    let newSimvol = props.state.newMessage;
+
+
+    let dialogs = props.state.dialogsData.map( (person) => {
+        return  <Dialog name={person.name} id={person.id} img={person.img}/>
     } )
-    let messages = props.state.messagesData.map( (el) => {
-        return <Message message={el.name} />;
+    let messages = props.state.messagesData.map( (message) => {
+        return <Message message={message.name} />;
     } )
 
     return (
@@ -23,6 +34,21 @@ const Messanger = (props) => {
             </div>
             <div className={m.messages}>
                 {messages}
+            </div>
+            <div>
+                <div>
+                    <textarea
+                        value={newSimvol}
+                        onChange={changeMessage}
+                    >
+
+                    </textarea>
+                </div>
+                <div>
+                    <button onClick={clickMessage}>
+                        Отправить
+                    </button>
+                </div>
             </div>
         </div>
     );

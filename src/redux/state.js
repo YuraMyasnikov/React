@@ -1,5 +1,9 @@
 const ADD_ELEMENT = "ADD-ELEMENT";
 const UPDATE_POST = "UPDATE-POST";
+
+const CLICK_MESSAGE = "CLICK_MESSAGE";
+const UPDATE_MESSAGE = "UPDATE_MESSAGE";
+
 let store = {
     _state: {
         'page': {
@@ -12,19 +16,17 @@ let store = {
                 newPost: ""
             },
         },
+
         'messenger': {
+            newMessage : "",
             dialogsData: [
                 {id: 1, name: 'Юра', img: '/accets/dialog/yu.jpg'},
-                {id: 2, name: 'Рома', img: '/accets/dialog/ro.png'},
-                {id: 3, name: 'Илья', img: '/src/accets/dialog/il.jpg'},
-                {id: 4, name: 'Вика', img: '/src/accets/dialog/vi.jpg'},
-                {id: 5, name: 'Лена', img: '/src/accets/dialog/le.jpg'},
+                {id: 5, name: 'Лена', img: '/accets/dialog/le.jpg'},
             ],
             messagesData: [
-                {id: 1, name: 'Привет Юрец'},
-                {id: 2, name: 'как дела'},
-                {id: 3, name: 'ты приедешь?'},
-                {id: 4, name: 'Какие платы'},
+                {id: 1, name: 'Привет Юра'},
+                {id: 2, name: 'Как дела?'},
+                {id: 4, name: 'Какие планы'},
                 {id: 5, name: 'Вонючий случай'},
             ]
         },
@@ -42,9 +44,26 @@ let store = {
             };
             this._state.page.wide.posts.push(newPost);
             res();
-        } else if (action.type === UPDATE_POST) {
+        }
+
+        else if (action.type === UPDATE_POST) {
             let test = this._state.page.wide.newPost = action.simvol
             res()
+        }
+
+        else if( action.type === UPDATE_MESSAGE ) {
+            this._state.messenger.newMessage = action.simvol
+            console.log('1',this._state.messenger.newMessage)
+            res();
+        }
+        else if ( action.type === CLICK_MESSAGE ) {
+            let newMessage = {
+                id:10,
+                name: action.message
+            }
+            this._state.messenger.messagesData.push(newMessage);
+            res();
+            this._state.messenger.newMessage = "";
         }
     },
 }
@@ -62,11 +81,23 @@ export const addElementActionCreator = (param2) => {
         param1: param2
     }
 }
-
 export const updatePostActionCreator = (param) => {
     return {
         type: UPDATE_POST,
         simvol: param
+    }
+}
+
+export const updateMessageCreator = (param) => {
+    return {
+        type: UPDATE_MESSAGE,
+        simvol: param
+    }
+}
+export const clickMessageCreator = (param) => {
+    return {
+        type: CLICK_MESSAGE,
+        message: param
     }
 }
 

@@ -16,7 +16,6 @@ const Main = (props) => {
                 <Content
                     state={props.store.getState()}
                     despatch={props.store.despatch.bind(props.store)}
-                    subscribe = {props.store.getSubscribe}
                 />
             </div>
         </BrowserRouter>
