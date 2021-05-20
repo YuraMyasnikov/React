@@ -4,7 +4,7 @@ import m from './messanger.module.css';
 
 import Dialog from "./Dialog/Dialog";
 import Message from "./Message/Message";
-import {clickMessageCreator, updateMessageCreator} from "../../../redux/state";
+import {clickMessageCreator, updateMessageCreator} from "../../../redux/messanger-reducer";
 
 const Messanger = (props) => {
     console.log("messenger",props);
@@ -17,8 +17,9 @@ const Messanger = (props) => {
     let clickMessage = () =>{
         props.despatch(clickMessageCreator(newSimvol))
     }
+    console.log('>>>', props.state);
     let newSimvol = props.state.newMessage;
-
+    console.log('>>>2', props.state);
 
     let dialogs = props.state.dialogsData.map( (person) => {
         return  <Dialog name={person.name} id={person.id} img={person.img}/>

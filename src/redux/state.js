@@ -1,6 +1,8 @@
-const ADD_ELEMENT = "ADD-ELEMENT";
-const UPDATE_POST = "UPDATE-POST";
+/*import MessengerReducer from "./messanger-reducer";
+import PageReducer from "./page-reducer";*/
 
+const CLICK_ELEMENT = "ADD-ELEMENT";
+const UPDATE_POST = "UPDATE-POST";
 const CLICK_MESSAGE = "CLICK_MESSAGE";
 const UPDATE_MESSAGE = "UPDATE_MESSAGE";
 
@@ -16,7 +18,6 @@ let store = {
                 newPost: ""
             },
         },
-
         'messenger': {
             newMessage : "",
             dialogsData: [
@@ -31,30 +32,40 @@ let store = {
             ]
         },
     },
+    subscribe (observer) {
+        this._callSubscriber = observer
+    },
+    _callSubscriber(param){
+        console.log('default method call subscribe')
+    },
+
 
     getState() {
         return this._state
     },
     despatch(action) {
-        if (action.type === ADD_ELEMENT) {
+
+        /*this._state.page.wide = PageReducer(this._state.page.wide, action);
+        this._state.messenger = MessengerReducer(this._state.messenger, action);
+
+        this._callSubscriber();*/
+
+        if (action.type === CLICK_ELEMENT) {
             let newPost = {
                 id: 5,
-                /*post: this._state.page.wide.newPost*/
                 post: action.param1
             };
             this._state.page.wide.posts.push(newPost);
-            res();
+            this._callSubscriber()
         }
-
         else if (action.type === UPDATE_POST) {
             let test = this._state.page.wide.newPost = action.simvol
-            res()
+            this._callSubscriber()
         }
-
         else if( action.type === UPDATE_MESSAGE ) {
             this._state.messenger.newMessage = action.simvol
             console.log('1',this._state.messenger.newMessage)
-            res();
+            this._callSubscriber()
         }
         else if ( action.type === CLICK_MESSAGE ) {
             let newMessage = {
@@ -62,22 +73,16 @@ let store = {
                 name: action.message
             }
             this._state.messenger.messagesData.push(newMessage);
-            res();
+            this._callSubscriber()
             this._state.messenger.newMessage = "";
         }
     },
 }
 
-let res = () => {
-    alert('нет обновлений')
-}
-export const sub = (observer) => {
-    res = observer;
-}
 
 export const addElementActionCreator = (param2) => {
     return {
-        type: ADD_ELEMENT,
+        type: CLICK_ELEMENT,
         param1: param2
     }
 }
@@ -87,7 +92,6 @@ export const updatePostActionCreator = (param) => {
         simvol: param
     }
 }
-
 export const updateMessageCreator = (param) => {
     return {
         type: UPDATE_MESSAGE,

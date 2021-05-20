@@ -1,16 +1,17 @@
 import React from 'react';
 import p from './post.module.css';
-import {addElementActionCreator, updatePostActionCreator} from "../../../../../redux/state";
+import {addElementActionCreator, updatePostActionCreator} from "../../../../../redux/page-reducer";
 
 
-console.log(addElementActionCreator());
-console.log(updatePostActionCreator());
+/*console.log(addElementActionCreator());
+console.log(updatePostActionCreator());*/
 
 //link to textarea
 let newPost = React.createRef();
 
 const Post = (props) => {
     console.log('post', props)
+    debugger
     const posts = props.state.posts;
 
 
@@ -25,6 +26,7 @@ const Post = (props) => {
                               let sim = newPost.current.value
                               let active = updatePostActionCreator(sim)
                               props.despatch(active)
+
                           }}
                 />
 
