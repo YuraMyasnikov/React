@@ -11,9 +11,7 @@ let newPost = React.createRef();
 
 const Post = (props) => {
     console.log('post', props)
-    debugger
     const posts = props.state.posts;
-
 
     return (
 
@@ -25,16 +23,14 @@ const Post = (props) => {
                           onChange={() => {
                               let sim = newPost.current.value
                               let active = updatePostActionCreator(sim)
-                              props.despatch(active)
-
+                              props.dispatch(active)
                           }}
                 />
 
                 <button onClick={() => {
                     let info = newPost.current.value;
                     let action = addElementActionCreator(info);
-                    props.despatch(action)
-                    /*newPost.current.value = "";*/
+                    props.dispatch(action)
                     props.state.newPost = '';
                 }
 

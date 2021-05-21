@@ -14,8 +14,10 @@ const Main = (props) => {
                 <Header/>
                 <Sidebar/>
                 <Content
+
                     state={props.store.getState()}
-                    despatch={props.store.despatch.bind(props.store)}
+                    dispatch={props.dispatch}
+
                 />
             </div>
         </BrowserRouter>

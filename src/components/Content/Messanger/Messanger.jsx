@@ -12,14 +12,13 @@ const Messanger = (props) => {
     let changeMessage = (e)=>{
         console.log(e.target.value);
         let simvol = e.target.value;
-        props.despatch(updateMessageCreator(simvol))
+        props.dispatch(updateMessageCreator(simvol))
     }
     let clickMessage = () =>{
-        props.despatch(clickMessageCreator(newSimvol))
+        props.dispatch(clickMessageCreator(newSimvol))
+        props.state.newMessage = '';
     }
-    console.log('>>>', props.state);
     let newSimvol = props.state.newMessage;
-    console.log('>>>2', props.state);
 
     let dialogs = props.state.dialogsData.map( (person) => {
         return  <Dialog name={person.name} id={person.id} img={person.img}/>

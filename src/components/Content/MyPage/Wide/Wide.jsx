@@ -8,7 +8,7 @@ function Wide(props) {
         <div className="wide">
             <Post
                 state={props.state}
-                despatch={props.despatch}
+                dispatch={props.dispatch}
                 subscribe = {props.subscribe}
             />
         </div>

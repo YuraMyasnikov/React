@@ -17,13 +17,13 @@ function Content(props) {
         <div className="content">
             <Route path='/page' render={() => <MyPage
                 state={props.state.page}
-                despatch={props.despatch}
+                dispatch={props.dispatch}
                 />}
             />
             <Route path='/friend' component={Friend}/>
             <Route path='/messanger' render={ () => <Messanger
                 state={props.state.messenger}
-                despatch={props.despatch} /> }/>
+                dispatch={props.dispatch} /> }/>
             <Route path='/music' component={Music}/>
             <Route path='/news' component={News}/>
             <Route path='/photo' component={Photo}/>

@@ -1,8 +1,6 @@
-/*import MessengerReducer from "./messanger-reducer";
-import PageReducer from "./page-reducer";*/
-
 const CLICK_ELEMENT = "ADD-ELEMENT";
 const UPDATE_POST = "UPDATE-POST";
+
 const CLICK_MESSAGE = "CLICK_MESSAGE";
 const UPDATE_MESSAGE = "UPDATE_MESSAGE";
 
@@ -44,11 +42,6 @@ let store = {
         return this._state
     },
     despatch(action) {
-
-        /*this._state.page.wide = PageReducer(this._state.page.wide, action);
-        this._state.messenger = MessengerReducer(this._state.messenger, action);
-
-        this._callSubscriber();*/
 
         if (action.type === CLICK_ELEMENT) {
             let newPost = {

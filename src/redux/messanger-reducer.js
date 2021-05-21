@@ -1,9 +1,23 @@
 const CLICK_MESSAGE = "CLICK_MESSAGE";
 const UPDATE_MESSAGE = "UPDATE_MESSAGE";
 
-const MessengerReducer = (state, action) => {
+let stateInit = {
+    newMessage : "",
+    dialogsData: [
+        {id: 1, name: 'Юра', img: '/accets/dialog/yu.jpg'},
+        {id: 5, name: 'Лена', img: '/accets/dialog/le.jpg'},
+    ],
+    messagesData: [
+        {id: 1, name: 'Привет Юра'},
+        {id: 2, name: 'Как дела?'},
+        {id: 4, name: 'Какие планы'},
+        {id: 5, name: 'Вонючий случай'},
+    ]
+}
 
-    /*switch (action.type) {
+const MessengerReducer = (state = stateInit, action) => {
+
+    switch (action.type) {
         case UPDATE_MESSAGE :
             state.newMessage = action.simvol;
             console.log('1',state.newMessage);
@@ -15,25 +29,11 @@ const MessengerReducer = (state, action) => {
                 name: action.message
             }
             state.messagesData.push(newMessage);
-            /!*state.newMessage = "";*!/
+            /*state.newMessage = "";*/
             return state;
 
         default :
             return state
-    }*/
-    if (action.type === UPDATE_MESSAGE) {
-        state.newMessage = action.simvol
-    }
-    else if (action.type === CLICK_MESSAGE) {
-        let newMessage = {
-            id: 10,
-            name: action.message
-        }
-        state.messagesData.push(newMessage);
-        /*this._state.messenger.newMessage = "";*/
-    }
-    else{
-        return state;
     }
 
 }

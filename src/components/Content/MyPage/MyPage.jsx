@@ -14,7 +14,7 @@ function MyPage(props) {
             <Narrow />
             <Wide
                 state={props.state.wide}
-                despatch={props.despatch}
+                dispatch={props.dispatch}
                 subscribe = {props.subscribe}
             />
         </div>

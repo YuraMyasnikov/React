@@ -1,42 +1,36 @@
 const CLICK_ELEMENT = "ADD-ELEMENT";
 const UPDATE_POST = "UPDATE-POST";
 
-const PageReducer = (state, action) => {
+let stateInit = {
+    'wide': {
+        posts: [
+            {id: 1, post: "post-1"},
+            {id: 2, post: "post-2"},
+            {id: 3, post: "post-3"},
+        ],
+        newPost: ""
+    }
+}
 
-    /* switch (action.type) {
+const PageReducer = (state = stateInit, action) => {
+
+     switch (action.type) {
          case CLICK_ELEMENT :
-             console.log('>>>',state)
              let newP = {
                  id: 10,
                  post: action.param1
              };
-             debugger
-             state.posts.push(newP);
-
+             state.wide.posts.push(newP);
              return state;
 
          case UPDATE_POST :
-             debugger
-             state.newPost = action.simvol;
-             debugger
+             state.wide.newPost = action.simvol;
              return state;
 
          default:
-             debugger
              return state;
-     }*/
+     }
 
-    if (action.type === CLICK_ELEMENT) {
-        let newPost = {
-            id: 5,
-            post: action.param1
-        };
-        state.posts.push(newPost);
-    }
-    else if (action.type === UPDATE_POST) {
-        state.newPost = action.simvol
-        /*state.newPost = '';*/
-    }
 }
 
 export const updatePostActionCreator = (param) => {
