@@ -1,12 +1,12 @@
 import React from 'react';
 import './wide.css';
-import Post from "./Posts/Post";
+import PostContainer from "./Posts/PostContainer";
 
 function Wide(props) {
     console.log('wide', props)
     return (
         <div className="wide">
-            <Post
+            <PostContainer
                 state={props.state}
                 dispatch={props.dispatch}
                 subscribe = {props.subscribe}

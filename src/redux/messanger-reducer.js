@@ -2,7 +2,7 @@ const CLICK_MESSAGE = "CLICK_MESSAGE";
 const UPDATE_MESSAGE = "UPDATE_MESSAGE";
 
 let stateInit = {
-    newMessage : "",
+    newMessage : "YURA",
     dialogsData: [
         {id: 1, name: 'Юра', img: '/accets/dialog/yu.jpg'},
         {id: 5, name: 'Лена', img: '/accets/dialog/le.jpg'},
