@@ -9,6 +9,7 @@ import News      from "./News/News";
 import Photo     from "./Photo/Photo";
 import Video     from "./Video/Video";
 import {Route}   from "react-router-dom";
+import MessangerContainer from "./Messanger/MessangerContainer";
 
 
 function Content(props) {
@@ -21,7 +22,7 @@ function Content(props) {
                 />}
             />
             <Route path='/friend' component={Friend}/>
-            <Route path='/messanger' render={ () => <Messanger
+            <Route path='/messanger' render={ () => <MessangerContainer
                 state={props.state.messenger}
                 dispatch={props.dispatch} /> }/>
             <Route path='/music' component={Music}/>

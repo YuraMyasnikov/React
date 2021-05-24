@@ -2,54 +2,42 @@ import React from 'react';
 import './messanger.css';
 import m from './messanger.module.css';
 
-import Dialog from "./Dialog/Dialog";
-import Message from "./Message/Message";
 import {clickMessageCreator, updateMessageCreator} from "../../../redux/messanger-reducer";
 
 const Messanger = (props) => {
-    console.log("messenger",props);
+    console.log("messenger", props);
 
-    let changeMessage = (e)=>{
-        console.log(e.target.value);
+    let MyUpdate = (e) => {
         let simvol = e.target.value;
-        props.dispatch(updateMessageCreator(simvol))
+        props.change(simvol)
     }
-    let clickMessage = () =>{
-        props.dispatch(clickMessageCreator(newSimvol))
-        props.state.newMessage = '';
+    let MyClick = () => {
+        props.click();
     }
-    let newSimvol = props.state.newMessage;
-
-    let dialogs = props.state.dialogsData.map( (person) => {
-        return  <Dialog name={person.name} id={person.id} img={person.img}/>
-    } )
-    let messages = props.state.messagesData.map( (message) => {
-        return <Message message={message.name} />;
-    } )
 
     return (
         <div className={m.messanger}>
             <div className={m.dialods}>
-                {dialogs}
+                {props.dialogs}
             </div>
             <div className={m.messages}>
-                {messages}
+                {props.messages}
             </div>
-            <div>
-                <div>
-                    <textarea
-                        value={newSimvol}
-                        onChange={changeMessage}
-                    >
 
-                    </textarea>
-                </div>
-                <div>
-                    <button onClick={clickMessage}>
-                        Отправить
-                    </button>
-                </div>
+            <div>
+                <textarea
+                    value={props.value}
+                    onChange={MyUpdate}
+                >
+                </textarea>
             </div>
+
+            <div>
+                <button onClick={MyClick}>
+                    Отправить
+                </button>
+            </div>
+
         </div>
     );
 }

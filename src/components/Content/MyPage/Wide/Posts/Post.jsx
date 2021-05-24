@@ -3,38 +3,35 @@ import p from './post.module.css';
 import {addElementActionCreator, updatePostActionCreator} from "../../../../../redux/page-reducer";
 
 
-/*console.log(addElementActionCreator());
-console.log(updatePostActionCreator());*/
-
-//link to textarea
-let newPost = React.createRef();
 
 const Post = (props) => {
+    //link to textarea
+    let newPost = React.createRef();
+
+    let MyUpdate = () => {
+        props.change(newPost.current.value);
+    }
+    let MyClick = ()=> {
+        props.click(props.value)
+    }
+
     console.log('post', props)
-    const posts = props.state.posts;
+    const posts = props.posts;
+    /*let sim = newPost.current.value*/
 
     return (
-
         <div className={p.block}>
             <div className={p.post}>
                 {/*принимаю ссылку*/}
-                <textarea ref={newPost}
-                          value={props.state.newPost}
-                          onChange={() => {
-                              let sim = newPost.current.value
-                              let active = updatePostActionCreator(sim)
-                              props.dispatch(active)
-                          }}
+                <textarea   ref={newPost}
+                            value={props.value}
+                            onChange={MyUpdate}
                 />
 
-                <button onClick={() => {
-                    let info = newPost.current.value;
-                    let action = addElementActionCreator(info);
-                    props.dispatch(action)
-                    props.state.newPost = '';
-                }
-
-                }> Отправить
+                <button
+                    onClick={MyClick}
+                >
+                    Отправить
                 </button>
 
                 {posts.map((post) => {
@@ -45,6 +42,7 @@ const Post = (props) => {
 
             </div>
         </div>
+
     );
 }
 
