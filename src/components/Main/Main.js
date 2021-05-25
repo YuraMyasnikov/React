@@ -11,14 +11,9 @@ const Main = (props) => {
     return (
         <BrowserRouter>
             <div className="main">
-                <Header/>
-                <Sidebar/>
-                <Content
-
-                    state={props.store.getState()}
-                    dispatch={props.dispatch}
-
-                />
+                <Header />
+                <Sidebar />
+                <Content />
             </div>
         </BrowserRouter>
     );

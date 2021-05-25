@@ -5,6 +5,8 @@ import {addElementActionCreator, updatePostActionCreator} from "../../../../../r
 
 
 const Post = (props) => {
+    console.log('&&&',props)
+
     //link to textarea
     let newPost = React.createRef();
 
@@ -34,7 +36,7 @@ const Post = (props) => {
                     Отправить
                 </button>
 
-                {posts.map((post) => {
+                {props.posts.map((post) => {
                     return (
                         <div> {post.post} </div>
                     )

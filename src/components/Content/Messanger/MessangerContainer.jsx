@@ -3,8 +3,9 @@ import {clickMessageCreator, updateMessageCreator} from "../../../redux/messange
 import Messanger from "./Messanger";
 import Dialog from "./Dialog/Dialog";
 import Message from "./Message/Message";
+import {connect} from "react-redux";
 
-const MessangerContainer = (props) => {
+/*const MessangerContainer = (props) => {
     console.log("messengerContainer",props);
 
     let changeMessage = (param)=>{
@@ -26,6 +27,28 @@ const MessangerContainer = (props) => {
     return (
         <Messanger click={clickMessage} change={changeMessage} value={newSimvol} dialogs={dialogs} messages={messages} />
     );
+}*/
+
+const mapStateToProps = (state)=>{
+    console.log('YYY', state)
+    return{
+        value: state.messenger.newMessage,
+        messagesData: state.messenger.messagesData,
+        dialogsData: state.messenger.dialogsData,
+    }
 }
+const mapDispatchToProps = (dispatch)=>{
+    return{
+        changeMessage: (param)=>{
+            dispatch(updateMessageCreator(param))
+        },
+        clickMessage: (newSimvol)=>{
+            dispatch(clickMessageCreator(newSimvol))
+        }
+    }
+}
+
+
+const MessangerContainer = connect(mapStateToProps, mapDispatchToProps)(Messanger)
 
 export default MessangerContainer;

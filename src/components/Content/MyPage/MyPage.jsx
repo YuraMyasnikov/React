@@ -12,11 +12,7 @@ function MyPage(props) {
     return (
         <div className='page'>
             <Narrow />
-            <Wide
-                state={props.state.wide}
-                dispatch={props.dispatch}
-                subscribe = {props.subscribe}
-            />
+            <Wide />
         </div>
     );
 }
