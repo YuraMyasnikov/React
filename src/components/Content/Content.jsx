@@ -16,15 +16,9 @@ function Content(props) {
     console.log("content", props)
     return (
         <div className="content">
-            <Route path='/page' render={() => <MyPage
-                state={props.state.page}
-                dispatch={props.dispatch}
-                />}
-            />
+            <Route path='/page' render={() => <MyPage />} />
             <Route path='/friend' component={Friend}/>
-            <Route path='/messanger' render={ () => <MessangerContainer
-                state={props.state.messenger}
-                dispatch={props.dispatch} /> }/>
+            <Route path='/messanger' render={ () => <MessangerContainer /> }/>
             <Route path='/music' component={Music}/>
             <Route path='/news' component={News}/>
             <Route path='/photo' component={Photo}/>

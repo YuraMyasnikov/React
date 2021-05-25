@@ -8,27 +8,41 @@ let stateInit = {
             {id: 2, post: "post-2"},
             {id: 3, post: "post-3"},
         ],
-        newPost: ""
+        newPost: "first default"
     }
 }
 
 const PageReducer = (state = stateInit, action) => {
 
      switch (action.type) {
-         case CLICK_ELEMENT :
+         case CLICK_ELEMENT :{
              let newP = {
                  id: 10,
                  post: action.param1
              };
-             state.wide.posts.push(newP);
-             return state;
+             let stateCopy = {...state};
+             stateCopy.wide = {...state.wide};
+             stateCopy.wide.posts = [...state.wide.posts];
 
-         case UPDATE_POST :
-             state.wide.newPost = action.simvol;
-             return state;
+             stateCopy.wide.posts.push(newP);
+             stateCopy.wide.newPost = '';
+             return stateCopy;
+         }
+
+         case UPDATE_POST :{
+             let stateCopy = {...state};
+             stateCopy.wide = {...state.wide};
+             stateCopy.wide.newPost = {...state.wide.newPost};
+
+             stateCopy.wide.newPost = action.simvol;
+             return stateCopy;
+         }
 
          default:
-             return state;
+         {  let stateCopy = {...state}
+             return stateCopy;
+         }
+
      }
 
 }

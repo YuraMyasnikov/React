@@ -6,11 +6,7 @@ function Wide(props) {
     console.log('wide', props)
     return (
         <div className="wide">
-            <PostContainer
-                state={props.state}
-                dispatch={props.dispatch}
-                subscribe = {props.subscribe}
-            />
+            <PostContainer />
         </div>
     );
 }

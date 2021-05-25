@@ -3,25 +3,40 @@ import './messanger.css';
 import m from './messanger.module.css';
 
 import {clickMessageCreator, updateMessageCreator} from "../../../redux/messanger-reducer";
+import d from "./Dialog/dialog.module.css";
+import {NavLink} from "react-router-dom";
 
 const Messanger = (props) => {
-    console.log("messenger", props);
+    console.log("messenger!", props);
 
     let MyUpdate = (e) => {
         let simvol = e.target.value;
-        props.change(simvol)
+        props.changeMessage(simvol)
     }
     let MyClick = () => {
-        props.click();
+        props.clickMessage(props.value);
     }
+
+    let dialogs = props.dialogsData;
+    let messages = props.messagesData;
 
     return (
         <div className={m.messanger}>
             <div className={m.dialods}>
-                {props.dialogs}
+                {dialogs.map( (dialog)=>{
+                    return(
+                        <div>
+                            {dialog.name}
+                        </div>
+                    )
+                } )}
             </div>
             <div className={m.messages}>
-                {props.messages}
+                {messages.map( (message)=>{
+                    return(
+                        <div>{message.name}</div>
+                    )
+                } )}
             </div>
 
             <div>

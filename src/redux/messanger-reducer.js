@@ -2,7 +2,7 @@ const CLICK_MESSAGE = "CLICK_MESSAGE";
 const UPDATE_MESSAGE = "UPDATE_MESSAGE";
 
 let stateInit = {
-    newMessage : "YURA",
+    newMessage : "Mess",
     dialogsData: [
         {id: 1, name: 'Юра', img: '/accets/dialog/yu.jpg'},
         {id: 5, name: 'Лена', img: '/accets/dialog/le.jpg'},
@@ -18,22 +18,29 @@ let stateInit = {
 const MessengerReducer = (state = stateInit, action) => {
 
     switch (action.type) {
-        case UPDATE_MESSAGE :
-            state.newMessage = action.simvol;
-            console.log('1',state.newMessage);
-            return state;
+        case UPDATE_MESSAGE :{
+            let stateCopy = {...state};
+            stateCopy.newMessage = action.simvol;
+            return stateCopy;
+        }
 
-        case CLICK_MESSAGE :
+        case CLICK_MESSAGE :{
             let newMessage = {
                 id:10,
                 name: action.message
             }
-            state.messagesData.push(newMessage);
-            /*state.newMessage = "";*/
-            return state;
+            let stateCopy = {...state};
+            stateCopy.messagesData = [...state.messagesData]
+            stateCopy.messagesData.push(newMessage);
+            stateCopy.newMessage = '';
+            return stateCopy;
+        }
 
-        default :
-            return state
+        default :{
+            let stateCopy = {...state}
+            return stateCopy
+        }
+
     }
 
 }
