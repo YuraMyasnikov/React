@@ -3,13 +3,10 @@ import React from 'react';
 import './content.css'
 import MyPage    from "./MyPage/MyPage";
 import Friend    from "./Friend/Friend";
-import Messanger from "./Messanger/Messanger";
-import Music     from "./Music/Music";
 import News      from "./News/News";
-import Photo     from "./Photo/Photo";
-import Video     from "./Video/Video";
 import {Route}   from "react-router-dom";
 import MessangerContainer from "./Messanger/MessangerContainer";
+import UsersContainer from "./Users/UsersContainer";
 
 
 function Content(props) {
@@ -19,10 +16,8 @@ function Content(props) {
             <Route path='/page' render={() => <MyPage />} />
             <Route path='/friend' component={Friend}/>
             <Route path='/messanger' render={ () => <MessangerContainer /> }/>
-            <Route path='/music' component={Music}/>
+            <Route path='/users' render={ () => <UsersContainer /> }/>
             <Route path='/news' component={News}/>
-            <Route path='/photo' component={Photo}/>
-            <Route path='/video' component={Video}/>
         </div>
     );
 }
