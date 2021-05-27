@@ -1,0 +1,12 @@
+.main{
+
+}
+
+.user{
+    display: flex;
+    margin-bottom: 30px;
+ }
+.photo{
+    height: 70px;
+    width: 70px;
+}
